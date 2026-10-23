@@ -1,0 +1,17 @@
+/* noctua: tan ink on chocolate brown, dark. */
+:root {
+    --c-glass-hi: #2d1f17;
+    --c-glass: #1a110a;
+    --c-glass-lo: #120b06;
+    --c-ink: #d4b896;
+    --c-shadow: #000000aa;
+    --c-r: #d9826a;
+    --c-g: #a8b878;
+    --c-b: #8fb0c8;
+    --c-y: #e0b25c;
+    --c-o: #e8a25a;
+    --c-c: #86c6c0;
+    --c-p: #e893ad;
+    --c-ghost: rgba(212, 184, 150, 0.08);
+    --c-dot: rgba(212, 184, 150, 0.05);
+}

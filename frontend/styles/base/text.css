@@ -1,0 +1,39 @@
+.dim {
+    color: var(--dim);
+    text-shadow: var(--px) var(--px) 0 var(--dim-shadow);
+}
+
+/* a control's key hint, lowercase; hidden on touch screens */
+.key {
+    color: var(--key);
+    text-transform: none;
+}
+button:is(:hover, :focus-visible, :active):not(:disabled) .key,
+button:disabled .key {
+    color: inherit;
+    text-shadow: none;
+}
+@media (hover: none) {
+    .key {
+        display: none;
+    }
+}
+
+.mark-ok {
+    color: var(--G);
+}
+.mark-err {
+    color: var(--R);
+}
+.mark-busy {
+    color: var(--B);
+}
+.mark-hp {
+    color: var(--hp);
+}
+
+@keyframes flash {
+    50% {
+        opacity: 0.35;
+    }
+}

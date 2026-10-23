@@ -1,0 +1,53 @@
+/* The top row (logo, HUD or screen name, way out) and the bottom row
+   (settings, credit). Home shows only the bottom row, a game only the top. */
+.topbar,
+.bottombar {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--cw) * 2);
+    height: var(--lh);
+    white-space: nowrap;
+}
+/* the top row doesn't clip, so the −♥ over the hearts can rise out of it */
+.bottombar {
+    overflow: hidden;
+    justify-content: space-between;
+}
+body[data-frame="home"] .topbar,
+body:not([data-frame="home"]) .bottombar {
+    display: none;
+}
+
+.brand {
+    text-transform: lowercase;
+    display: flex;
+    align-items: center;
+    height: var(--lh);
+    flex: none;
+}
+.screen-title {
+    color: var(--heading);
+    text-transform: uppercase;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.screen-title:empty {
+    display: none;
+}
+.screen-hud {
+    flex: 1;
+    min-width: 0;
+}
+.screen-end {
+    flex: none;
+    margin-left: auto;
+}
+.screen-end:empty {
+    display: none;
+}
+/* the first esc of two was pressed */
+.screen-end .is-armed {
+    color: var(--R);
+}

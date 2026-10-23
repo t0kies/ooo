@@ -1,0 +1,54 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    border-radius: 0 !important;
+    scrollbar-width: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* so a click never starts a text selection */
+button,
+label {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+::selection {
+    background: var(--ink);
+    color: var(--ink-on);
+    text-shadow: none;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+    font: inherit;
+}
+
+input,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+    text-shadow: inherit;
+    background: none;
+    border: none;
+    outline: none;
+}
+input {
+    padding: 0;
+    min-width: 0;
+}
+::placeholder {
+    color: var(--dim);
+    text-shadow: var(--px) var(--px) 0 var(--dim-shadow);
+    opacity: 1;
+}
+:focus {
+    outline: none;
+}

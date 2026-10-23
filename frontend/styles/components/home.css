@@ -1,0 +1,81 @@
+/* Home: the logo over the menu, on fixed cells so notices, the best score or
+   the code field never move them. The block is the 22-cell logo, centred on
+   a whole cell; its 15 rows (logo 6, gap 1, menu 8) are centred in the top
+   two thirds of the card. The menu is 16 cells (2 for the ↲ gutter, 14 for
+   "Quick Practice"); extras run on to the right of a row. */
+.home-card {
+    container-type: size;
+}
+.home {
+    --home-left: max(0px, round(down, (100cqw - var(--cw) * 22) / 2, var(--cw)));
+    width: calc(var(--cw) * 22);
+    margin-left: var(--home-left);
+    /* at least one row, for the best score above the logo */
+    padding-top: max(var(--lh), round(down, (100cqh * 2 / 3 - var(--lh) * 15) / 2, var(--lh)));
+}
+.home > .logo-big {
+    margin-bottom: var(--lh);
+}
+
+/* the row above the logo, out of the flow; flashes 7 times on opening */
+.home-best {
+    position: absolute;
+    margin-top: calc(var(--lh) * -1);
+    color: var(--title);
+}
+.home-best.is-flashing {
+    animation: best-flash 500ms steps(1) 7;
+}
+@keyframes best-flash {
+    0% {
+        color: var(--dim);
+    }
+    50% {
+        color: var(--title);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .home-best.is-flashing {
+        animation: none;
+    }
+}
+
+/* practice and the name sit together, the online rows a row apart; 8 rows
+   even when the online rows are off */
+.home-menu {
+    min-height: calc(var(--lh) * 8);
+    padding-left: calc(var(--cw) * 3);
+}
+.home-row {
+    display: flex;
+    align-items: baseline;
+    height: var(--lh);
+    white-space: pre;
+}
+.home-row:not(:first-child, .home-name) {
+    margin-top: var(--lh);
+}
+.home-notices {
+    margin-top: var(--lh);
+    padding-left: calc(var(--cw) * 5);
+    width: calc(100cqw - var(--home-left));
+}
+.home-enter {
+    flex: none;
+    width: calc(var(--cw) * 2);
+    color: var(--key);
+}
+.home-practice,
+.home-menu-btn {
+    text-transform: none;
+    color: var(--action);
+    white-space: nowrap;
+}
+.home-menu-btn::before,
+.home-menu-btn::after {
+    content: "Ξ";
+    content: "Ξ" / "";
+}
+.home-menu-btn + .field {
+    margin-left: var(--cw);
+}

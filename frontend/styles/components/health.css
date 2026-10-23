@@ -1,0 +1,72 @@
+.game-health {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--cw);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+.game-health-label {
+    color: var(--heading);
+}
+.game-health-pips {
+    display: inline-flex;
+    align-items: center;
+}
+.game-health-pip {
+    display: inline-block;
+    color: var(--dim);
+    transition:
+        color 140ms steps(2),
+        opacity 140ms steps(2);
+}
+.game-health-pip.is-full {
+    color: var(--hp);
+}
+.game-health[data-low="true"] .game-health-pip.is-full {
+    color: var(--R);
+}
+.game-health-pip.is-lost {
+    animation: health-pip-break 420ms steps(3) both;
+}
+@keyframes health-pip-break {
+    0%,
+    66% {
+        color: var(--R);
+    }
+    100% {
+        color: var(--dim);
+    }
+}
+
+/* damage: the lost heart breaks in R and a −♥ rises one row and fades.
+   Drawn over the hearts, so nothing else moves. */
+.damage-hit .game-health-pip.is-lost {
+    position: relative;
+}
+.damage-hit .game-health-pip.is-lost::after {
+    content: "−♥";
+    content: "−♥" / "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: var(--z-raised);
+    color: var(--R);
+    transform: translateX(-50%);
+    animation: damage-rise 520ms steps(4) both;
+}
+@keyframes damage-rise {
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, calc(var(--lh) * -1));
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .game-health-pip,
+    .damage-hit .game-health-pip.is-lost::after {
+        animation: none;
+        transition: none;
+    }
+}

@@ -1,0 +1,18 @@
+/* The panel is the whole scene: the game, plus one row above it (in a game)
+   or below it (on home). See index.html. */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 calc(var(--cw) * 2);
+    min-height: 0;
+    overflow: hidden;
+}
+
+.panel {
+    --snap-width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}

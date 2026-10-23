@@ -1,0 +1,40 @@
+/* Match clock: a bar and the seconds. B, then Y in the last 15 s, R in the
+   last 5. scripts/match/clock.js adds .is-beat each second: the number
+   blinks, and in the last 5 s the bar too. */
+.game-clock {
+    --clock-cells: 24;
+    justify-self: end;
+    display: flex;
+    gap: calc(var(--cw) * 2);
+    white-space: pre;
+    font-variant-numeric: tabular-nums;
+}
+.game-clock-bar {
+    color: var(--B);
+}
+.game-clock[data-urgency="warn"] .game-clock-bar {
+    color: var(--Y);
+}
+.game-clock[data-urgency="danger"] .game-clock-bar {
+    color: var(--R);
+}
+.game-clock.is-beat .game-hud-timer,
+.game-clock.is-beat[data-urgency="danger"] .game-clock-bar {
+    animation: clock-beat 300ms steps(1) 1;
+}
+/* upright phones: half the top row */
+@media (pointer: coarse) and (hover: none) and (max-width: 599px) {
+    .game-clock {
+        --clock-cells: 12;
+    }
+}
+@keyframes clock-beat {
+    50% {
+        opacity: 0.35;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .game-clock * {
+        animation: none !important;
+    }
+}

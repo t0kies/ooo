@@ -1,0 +1,59 @@
+/* The grid reaches one cell past each side so the swatches, not their
+   padding, line up with the top row. Leftover cells go to the sides. */
+.game-choices {
+    display: grid;
+    grid-template-columns: repeat(var(--per-row, 3), max-content);
+    /* gaps are as wide across as down (scripts/ui/choices.js) */
+    justify-content: center;
+    gap: var(--lh) calc(var(--cw) * 2);
+    width: calc(100% + var(--cw) * 2);
+    margin-left: calc(var(--cw) * -1);
+}
+/* touch screens have no key labels, so the swatch padding is the gap across */
+@media (hover: none) {
+    .game-choices {
+        column-gap: 0;
+    }
+}
+.round-column:has(> .game-choices) {
+    width: 100%;
+    margin-left: 0;
+}
+.round-column > .game-choices {
+    max-width: none;
+}
+.game-choice {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    white-space: pre;
+    padding: 0 var(--cw);
+}
+.game-choice:disabled {
+    cursor: default;
+}
+/* Swatches aren't lit like buttons. Hover, focus, press and a pending pick
+   drop an ink shadow under the swatch; after the answer, G under the right
+   one and R under a wrong pick. Includes the seam fix (base/buttons.css). */
+.game-choices .game-choice:is(:hover, :focus-visible, :active, .is-picked) {
+    background: none;
+    color: inherit;
+}
+.game-choice:is(:hover, :focus-visible, :active):not(:disabled) .blocks,
+.game-choice:is(.is-picked, .is-right, .is-wrong) .blocks {
+    text-shadow:
+        calc(var(--px) / 4) 0 currentColor,
+        calc(var(--px) / -4) 0 currentColor,
+        calc(var(--cw) / 2) calc(var(--cw) / 2) 0 var(--mark, var(--ink));
+}
+.game-choice.is-right .blocks {
+    --mark: var(--G);
+}
+.game-choice.is-wrong .blocks {
+    --mark: var(--R);
+}
+/* the roster between the swatch rows spans the grid */
+.game-choices > :not(.game-choice) {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
