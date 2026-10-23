@@ -5,6 +5,8 @@
     "description": "A small multiplayer color game drawn in text",
     "main": "backend/app.js",
     "scripts": {
+        "start": "node backend/app.js",
+        "watch": "node --watch-path=backend --watch-path=frontend backend/app.js",
         "test": "node --test \"test/**/*.test.js\"",
         "lint": "biome check .",
         "format": "biome check --write .",
