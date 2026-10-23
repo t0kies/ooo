@@ -1,0 +1,25 @@
+{
+    "name": "odd-one-out",
+    "version": "0.0.0",
+    "private": true,
+    "description": "A small multiplayer color game drawn in text",
+    "main": "backend/app.js",
+    "scripts": {
+        "test": "node --test \"test/**/*.test.js\"",
+        "lint": "biome check .",
+        "format": "biome check --write .",
+        "check": "pnpm lint && pnpm test"
+    },
+    "engines": {
+        "node": ">=22"
+    },
+    "packageManager": "pnpm@12.5.1",
+    "license": "PolyForm-Noncommercial-1.0.0",
+    "dependencies": {
+        "socket.io": "^4.8.4"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "2.5.12",
+        "socket.io-client": "^4.8.4"
+    }
+}
