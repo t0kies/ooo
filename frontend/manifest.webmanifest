@@ -1,0 +1,12 @@
+{
+    "name": "%SITE_NAME%",
+    "short_name": "%SITE_NAME%",
+    "description": "%SITE_DESCRIPTION%",
+    "start_url": "./",
+    "scope": "./",
+    "display": "fullscreen",
+    "display_override": ["fullscreen", "standalone"],
+    "background_color": "#1a110a",
+    "theme_color": "#1a110a",
+    "icons": [{ "src": "assets/images/logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
