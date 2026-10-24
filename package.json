@@ -7,6 +7,10 @@
     "scripts": {
         "start": "node backend/app.js",
         "watch": "node --watch-path=backend --watch-path=frontend backend/app.js",
+        "dev:backend": "node --watch tools/dev-backend/index.js",
+        "dev:frontend": "node --watch tools/dev-server/index.js",
+        "dev:all": "node tools/dev-all/index.js",
+        "dev:bots": "node tools/bots/index.js",
         "test": "node --test \"test/**/*.test.js\"",
         "lint": "biome check .",
         "format": "biome check --write .",
