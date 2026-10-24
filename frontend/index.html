@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- %…% placeholders are filled by the server (backend/http/site.js) -->
+    <title>%SITE_NAME%</title>
+    <meta name="application-name" content="%SITE_NAME%">
+    <meta name="description" content="%SITE_DESCRIPTION%">
+    <!-- link preview; most apps want absolute image URLs -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="%SITE_NAME%">
+    <meta property="og:title" content="%SITE_NAME%">
+    <meta property="og:description" content="%SITE_DESCRIPTION%">
+    <meta property="og:url" content="%ORIGIN%/">
+    <meta property="og:image" content="%ORIGIN%/assets/images/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="%SITE_NAME%: three typed O's, one a shade off">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="%SITE_NAME%">
+    <meta name="twitter:description" content="%SITE_DESCRIPTION%">
+    <meta name="twitter:image" content="%ORIGIN%/assets/images/og-image.png">
+    <link rel="icon" href="./assets/images/logo.svg" type="image/svg+xml">
+    <!-- home-screen app: fullscreen on phones, the only way on iPhone -->
+    <link rel="manifest" href="./manifest.webmanifest">
+    <meta name="theme-color" content="#1a110a">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="%SITE_NAME%">
+    <link rel="preload" href="./assets/fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" id="theme" href="./styles/themes/noctua.css" data-themes="noctua silver">
+    <script src="./scripts/boot-theme.js"></script>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+
+<body>
+    <main>
+        <div class="panel snap-centre">
+            <!-- top row (in a game): logo, HUD or screen name, way out.
+                 bottom row (home, and phones): settings and credit.
+                 screen-keys holds a key hint, hidden for now. -->
+            <div class="topbar">
+                <span class="brand" id="brand">%SITE_NAME%</span>
+                <span class="screen-title" id="screen-title">%SITE_NAME%</span>
+                <span class="screen-hud" id="screen-hud"></span>
+                <span class="screen-end" id="screen-end"></span>
+            </div>
+            <div id="game" class="game"></div>
+            <div class="bottombar">
+                <span class="settings">
+                    <button type="button" id="sound-toggle" aria-keyshortcuts="m"><span class="key" aria-hidden="true">m</span> sound <span class="setting-value">on</span></button>
+                    <button type="button" id="theme-toggle" aria-keyshortcuts="t"><span class="key" aria-hidden="true">t</span> theme <span class="setting-value">noctua</span></button>
+                    <button type="button" id="fullscreen-toggle" hidden><span class="symbol" aria-hidden="true">↗</span> full <span class="setting-value">off</span></button>
+                </span>
+                <span class="credit dim"><span class="credit-words">made with </span>♥<span class="credit-words"> by</span> %SITE_AUTHOR% · %YEAR%</span>
+            </div>
+            <div class="screen-keys" id="screen-keys" hidden></div>
+        </div>
+    </main>
+
+    <script type="module" src="./scripts/main.js"></script>
+</body>
+
+</html>
