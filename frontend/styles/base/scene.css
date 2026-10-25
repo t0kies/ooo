@@ -1,0 +1,56 @@
+html {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(circle, var(--bg-dot) 0 34%, transparent 40%) 0 0 / calc(var(--px) * 2) calc(var(--px) * 2),
+        var(--glass);
+}
+
+/* The scene: the largest 3:2 box that fits (2:3 in portrait, the whole
+   screen on a phone), centred, rounded down to whole cells and rows so
+   anything anchored to its right or bottom edge stays on the grid. */
+body {
+    --box-w: min(100vw, 150dvh);
+    --box-h: min(100dvh, 66.667vw);
+    margin: 0 auto;
+    width: var(--box-w);
+    width: round(down, var(--box-w), var(--cw));
+    height: var(--box-h);
+    height: round(down, var(--box-h), var(--lh));
+    padding: var(--lh) 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    color: var(--ink);
+    font-family: "Departure Mono", monospace;
+    font-size: var(--fs);
+    line-height: var(--lh);
+    font-variant-ligatures: none;
+    text-shadow: var(--px) var(--px) 0 var(--shadow);
+    /* text fields draw their own ▓ cursor (scripts/lib/field.js) */
+    caret-color: transparent;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media (orientation: portrait) {
+    body {
+        --box-w: min(100vw, 66.667dvh);
+        --box-h: min(100dvh, 150vw);
+    }
+}
+@media (max-width: 599px) {
+    body {
+        --box-w: 100vw;
+        --box-h: 100dvh;
+    }
+}
+
+/* centred boxes snap their left edge to a whole cell */
+.snap-centre {
+    width: min(var(--snap-width), round(down, 100%, var(--cw)));
+    margin-left: max(0px, round(down, (100% - var(--snap-width)) / 2, var(--cw)));
+}

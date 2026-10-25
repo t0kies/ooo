@@ -1,0 +1,38 @@
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+    text-shadow: inherit;
+    text-transform: uppercase;
+}
+/* hover inverts the cell; keyboard focus and pressing light it in B */
+button:hover:not(:disabled) {
+    background-color: var(--ink);
+    color: var(--ink-on);
+    text-shadow: none;
+}
+button:focus-visible,
+button:active:not(:disabled) {
+    background-color: var(--B);
+    color: var(--ink-on);
+    text-shadow: none;
+    outline: none;
+}
+button:disabled {
+    color: var(--ghost);
+    text-shadow: none;
+    cursor: not-allowed;
+}
+
+/* anti-aliased glyph edges leave seams between █ cells; a sliver of shadow
+   in the glyph's own color closes them */
+.blocks,
+button.blocks:is(:hover, :focus-visible, :active, :disabled) {
+    text-shadow:
+        calc(var(--px) / 4) 0 currentColor,
+        calc(var(--px) / -4) 0 currentColor;
+}

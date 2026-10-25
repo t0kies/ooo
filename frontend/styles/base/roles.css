@@ -1,0 +1,39 @@
+/* Color roles, mixed from the active theme (themes/<name>.css). No other
+   stylesheet names a color.
+
+   A theme sets --c-glass, --c-ink, --c-shadow, --c-r, --c-g, --c-b and the
+   hues --c-y (amber), --c-o (warm), --c-c (cool), --c-p (pink). Optional:
+   --c-glass-hi, --c-glass-lo, --c-on (text on ink), --c-ghost, --c-dot.
+
+   R: wrong, error, destructive. G: right, selected. B: focus, active,
+   progress. Y: warning, time running low.
+   title: game name, headlines. heading: screen names, labels, table heads.
+   action: a screen's main button. key: keyboard hints. hp: hearts.
+   All text roles reach 4.5:1 contrast; ghost is for disabled marks only. */
+:root {
+    --bg-hi: var(--c-glass-hi, var(--c-glass));
+    --bg: var(--c-glass);
+    --bg-lo: var(--c-glass-lo, var(--c-glass));
+    --bg-dot: var(--c-dot, color-mix(in srgb, var(--c-ink) 6%, transparent));
+    --glass: linear-gradient(180deg, var(--bg-hi), var(--bg) 45%, var(--bg-lo));
+
+    --ink: var(--c-ink);
+    --ink-on: var(--c-on, var(--c-glass));
+    --shadow: var(--c-shadow);
+
+    --R: var(--c-r);
+    --G: var(--c-g);
+    --B: var(--c-b);
+    --Y: var(--c-y, color-mix(in srgb, var(--c-r) 50%, var(--c-g)));
+
+    --title: var(--c-o, var(--c-ink));
+    --heading: var(--c-c, var(--c-ink));
+    --action: var(--c-o, var(--c-ink));
+    --key: var(--c-y, var(--dim));
+    --hp: var(--c-p, var(--c-g));
+
+    --ghost: var(--c-ghost, color-mix(in srgb, var(--c-r) 11%, transparent));
+
+    --dim: color-mix(in srgb, var(--c-ink) 80%, transparent);
+    --dim-shadow: color-mix(in srgb, var(--c-shadow) 55%, transparent);
+}

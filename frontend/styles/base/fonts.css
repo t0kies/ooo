@@ -1,0 +1,33 @@
+@font-face {
+    font-family: "Departure Mono";
+    src:
+        url("../../assets/fonts/DepartureMono-Regular.woff2") format("woff2"),
+        url("../../assets/fonts/DepartureMono-Regular.woff") format("woff"),
+        url("../../assets/fonts/DepartureMono-Regular.otf") format("opentype");
+    font-display: block;
+}
+
+/* Departure Mono is crisp only at multiples of 11px (a 7x14 cell at 11px).
+   All sizes are in cells (--cw, --lh) or font pixels (--px). --fs2 is the
+   only other text size. */
+:root {
+    --fs: 22px;
+    --fs2: calc(var(--fs) * 2);
+    --px: calc(var(--fs) / 11);
+    --cw: calc(var(--fs) * 7 / 11);
+    --lh: calc(var(--fs) * 14 / 11);
+
+    --z-raised: 1;
+}
+
+/* 22px needs at least 68 columns by 22 rows */
+@media (max-width: 959px), (max-height: 639px) {
+    :root {
+        --fs: 11px;
+    }
+}
+@media (min-width: 2560px) and (min-height: 1400px) {
+    :root {
+        --fs: 33px;
+    }
+}

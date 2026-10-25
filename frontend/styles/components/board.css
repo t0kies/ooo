@@ -1,0 +1,34 @@
+/* match results: fixed cell columns, a score bar under each row */
+.game-board {
+    display: flex;
+    flex-direction: column;
+    font-variant-numeric: tabular-nums;
+}
+.game-board-row {
+    display: grid;
+    grid-template-columns:
+        var(--cw) calc(var(--cw) * 2) calc(var(--cw) * 16) calc(var(--cw) * 5) calc(var(--cw) * 8)
+        calc(var(--cw) * 5) calc(var(--cw) * 4);
+    column-gap: var(--cw);
+    white-space: pre;
+}
+.game-board-head {
+    color: var(--heading);
+    text-transform: uppercase;
+}
+.game-board-cell {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.game-board-cell.is-num {
+    text-align: right;
+}
+.game-board-row[data-out="true"] {
+    color: var(--dim);
+}
+.game-board-bar {
+    color: var(--B);
+    white-space: pre;
+    padding-left: calc(var(--cw) * 6);
+    overflow: hidden;
+}

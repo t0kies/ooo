@@ -1,0 +1,22 @@
+/* typed logo: three rows of █ on home, the site name in the top row */
+.logo {
+    white-space: pre;
+}
+/* the odd O out (scripts/ui/logo.js) */
+.logo-o.is-odd {
+    color: var(--logo-odd);
+}
+.logo-small {
+    color: var(--title);
+    text-transform: lowercase;
+}
+.logo-big {
+    width: max-content;
+    font-size: var(--fs2);
+    line-height: calc(var(--lh) * 2);
+    /* the █ seam fix (base/buttons.css) plus the --fs2 drop shadow */
+    text-shadow:
+        calc(var(--px) / 2) 0 currentColor,
+        calc(var(--px) / -2) 0 currentColor,
+        calc(var(--px) * 2) calc(var(--px) * 2) 0 var(--shadow);
+}

@@ -1,0 +1,19 @@
+{
+    "name": "odd-one-out",
+    "version": "0.0.0",
+    "private": true,
+    "description": "A small multiplayer color game drawn in text",
+    "main": "backend/app.js",
+    "scripts": {
+        "start": "node backend/app.js",
+        "watch": "node --watch-path=backend --watch-path=frontend backend/app.js"
+    },
+    "engines": {
+        "node": ">=22"
+    },
+    "packageManager": "pnpm@12.5.1",
+    "license": "PolyForm-Noncommercial-1.0.0",
+    "dependencies": {
+        "socket.io": "^4.8.4"
+    }
+}

@@ -1,0 +1,46 @@
+/* the settings in the bottom row: sound, theme, fullscreen */
+.settings {
+    display: flex;
+    gap: calc(var(--cw) * 2);
+}
+.setting-value {
+    color: var(--heading);
+}
+button:is(:hover, :focus-visible, :active) .setting-value {
+    color: inherit;
+}
+#sound-toggle[aria-pressed="false"] .setting-value,
+#fullscreen-toggle[aria-pressed="false"] .setting-value {
+    color: var(--dim);
+}
+#fullscreen-toggle[hidden] {
+    display: none;
+}
+#fullscreen-toggle .symbol {
+    color: var(--key);
+}
+#fullscreen-toggle:is(:hover, :focus-visible, :active) .symbol {
+    color: inherit;
+}
+
+/* phones keep the bottom row in a game too (settings, fullscreen, way out) */
+@media (pointer: coarse) and (hover: none) {
+    body:not([data-frame="home"]) .bottombar {
+        display: flex;
+    }
+    body:not([data-frame="home"]) .credit {
+        display: none;
+    }
+    .bottombar > .screen-end {
+        margin-left: 0;
+    }
+    .credit-words {
+        display: none;
+    }
+}
+/* upright phones: no room for the name beside the HUD */
+@media (pointer: coarse) and (hover: none) and (max-width: 599px) {
+    .topbar > .brand {
+        display: none;
+    }
+}

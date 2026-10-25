@@ -1,0 +1,85 @@
+/* one row under the top row; nothing under the game but the body's last row */
+.game {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding: var(--lh) 0 0;
+}
+
+.game-card {
+    flex: 1;
+    position: relative;
+    z-index: var(--z-raised);
+    overflow: hidden;
+    /* clip vertically only, so swatch shadows on the right edge show */
+    overflow: visible clip;
+    /* clip doesn't make a scroll container, so it would grow to its content */
+    min-height: 0;
+    outline: none;
+}
+/* a screen is one left-aligned column, centred on whole cells (scripts/lib/grid.js) */
+.round-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--lh);
+    width: fit-content;
+    max-width: 100%;
+    margin-left: max(0px, round(down, (100% - var(--w, 0) * var(--cw)) / 2, var(--cw)));
+    padding-top: calc(var(--top, 0) * var(--lh));
+}
+.round-column > * {
+    max-width: 100%;
+}
+
+.game-prompt {
+    color: var(--dim);
+    text-shadow: var(--px) var(--px) 0 var(--dim-shadow);
+    text-transform: uppercase;
+}
+.game-big {
+    color: var(--title);
+    font-size: var(--fs2);
+    line-height: calc(var(--lh) * 2);
+    font-variant-numeric: tabular-nums;
+    white-space: pre;
+    text-shadow: calc(var(--px) * 2) calc(var(--px) * 2) 0 var(--shadow);
+}
+.game-section {
+    color: var(--heading);
+    text-transform: uppercase;
+    margin-top: var(--lh);
+}
+.game-notice {
+    min-height: var(--lh);
+}
+.game-best {
+    text-transform: uppercase;
+}
+
+/* [ bracketed ] action buttons; the brackets are hidden from screen readers */
+.game-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 calc(var(--cw) * 2);
+}
+.game-start-btn,
+.game-close-btn {
+    white-space: nowrap;
+}
+.game-start-btn {
+    color: var(--action);
+}
+.game-start-btn::before,
+.game-close-btn::before {
+    content: "[ ";
+    content: "[ " / "";
+}
+.game-start-btn::after,
+.game-close-btn::after {
+    content: " ]";
+    content: " ]" / "";
+}

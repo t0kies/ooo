@@ -1,0 +1,18 @@
+/* silver: reflective LCD, light. */
+:root {
+    --c-glass-hi: #f6f6e3;
+    --c-glass: #b5b5a8;
+    --c-glass-lo: #f6f6e3;
+    --c-ink: #0b2c1b;
+    --c-on: #dbdeda;
+    --c-shadow: #24090d74;
+    --c-r: #7d1726;
+    --c-g: #08504d;
+    --c-b: #1a3f7a;
+    --c-y: #5e3c00;
+    --c-o: #6a3400;
+    --c-c: #08434e;
+    --c-p: #7a2350;
+    --c-ghost: rgba(188, 48, 48, 0.11);
+    --c-dot: rgba(0, 0, 0, 0.055);
+}

@@ -1,0 +1,55 @@
+/* A label and an unboxed input. The cursor is a ▓ cell (scripts/lib/field.js):
+   blinking while typing, steady in an empty field, hidden otherwise.
+   .is-browsing (the home name field, focused but not editing) lights the
+   label like a focused button. */
+.field {
+    display: flex;
+    align-items: baseline;
+    gap: var(--cw);
+}
+.field[hidden] {
+    display: none;
+}
+.field-label {
+    color: var(--heading);
+    text-transform: uppercase;
+}
+.field-box {
+    position: relative;
+    display: inline-block;
+    width: calc(var(--cw) * var(--cells, 20));
+}
+.field-box input {
+    width: 100%;
+    caret-color: transparent;
+}
+.field-cursor {
+    position: absolute;
+    top: 0;
+    left: calc(var(--cw) * var(--at, 0));
+    color: var(--action);
+    pointer-events: none;
+    visibility: hidden;
+}
+.field-box[data-empty="true"] .field-cursor,
+.field:not(.is-browsing):focus-within .field-cursor {
+    visibility: visible;
+}
+.field:not(.is-browsing):focus-within .field-cursor {
+    animation: cursor-blink 1s steps(1) infinite;
+}
+@keyframes cursor-blink {
+    50% {
+        visibility: hidden;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .field:not(.is-browsing):focus-within .field-cursor {
+        animation: none;
+    }
+}
+.field.is-browsing:focus-within .field-label {
+    background-color: var(--B);
+    color: var(--ink-on);
+    text-shadow: none;
+}

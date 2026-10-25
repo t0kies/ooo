@@ -1,0 +1,26 @@
+/* solo results: one block per pick in the odd swatch's color, then √ or ╳,
+   typed in one by one */
+.game-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--cw);
+    max-width: calc(var(--cw) * 48);
+}
+.game-strip-cell {
+    display: inline-flex;
+    white-space: pre;
+    animation: game-type 1ms steps(1) calc(var(--i, 0) * 60ms) both;
+}
+@keyframes game-type {
+    from {
+        visibility: hidden;
+    }
+    to {
+        visibility: visible;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .game-strip-cell {
+        animation: none;
+    }
+}

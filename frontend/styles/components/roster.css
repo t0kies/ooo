@@ -1,0 +1,51 @@
+/* players, one aligned row each: marker, name, status */
+.game-roster {
+    display: flex;
+    flex-direction: column;
+}
+.game-roster-player {
+    display: grid;
+    grid-template-columns: var(--cw) calc(var(--cw) * 22) auto auto;
+    column-gap: var(--cw);
+    white-space: pre;
+}
+.game-roster-marker {
+    color: var(--B);
+}
+.game-roster-marker.dim {
+    color: var(--dim);
+}
+.game-roster-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.game-roster-status {
+    font-variant-numeric: tabular-nums;
+}
+.game-roster-kick {
+    color: var(--R);
+}
+.game-roster-away {
+    display: inline;
+    color: var(--dim);
+}
+.game-invite-code {
+    letter-spacing: var(--cw);
+}
+.game-arena > .game-roster {
+    flex: none;
+}
+
+/* in a match: marker, a 12-cell name, a cell per starting heart, points */
+.game-choices .game-roster-player {
+    grid-template-columns: var(--cw) calc(var(--cw) * 12) calc(var(--cw) * var(--hearts, 10)) max-content;
+    justify-content: start;
+}
+/* two columns, filled top to bottom */
+.game-roster.is-split {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(var(--rows, 1), auto);
+    grid-auto-columns: max-content;
+    column-gap: calc(var(--cw) * 4);
+}
