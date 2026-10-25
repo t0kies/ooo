@@ -16,7 +16,8 @@
         "format": "biome check --write .",
         "check": "pnpm lint && pnpm test",
         "og": "node tools/og/render.mjs",
-        "screens": "node tools/screens/capture.mjs"
+        "screens": "node tools/screens/capture.mjs",
+        "release": "node tools/release/index.js"
     },
     "engines": {
         "node": ">=22"
