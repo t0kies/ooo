@@ -64,7 +64,7 @@ function joinInvite(ctx, socketId, rawCode, rawNickname) {
     }
 
     const match = ctx.matches.get(ctx.invites.open.get(code));
-    if (!match || match.phase !== 'lobby') return fail('match_not_found');
+    if (match?.phase !== 'lobby') return fail('match_not_found');
     if (match.players.size >= ctx.settings.maxPlayers) return fail('match_full');
     const player = newPlayer(ctx, socketId, rawNickname);
     if (!player) return fail('invalid_nickname');

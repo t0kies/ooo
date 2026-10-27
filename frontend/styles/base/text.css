@@ -8,8 +8,7 @@
     color: var(--key);
     text-transform: none;
 }
-button:is(:hover, :focus-visible, :active):not(:disabled) .key,
-button:disabled .key {
+button:is(:hover, :focus-visible, :active, :disabled) .key {
     color: inherit;
     text-shadow: none;
 }

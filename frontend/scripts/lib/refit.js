@@ -9,7 +9,7 @@ let frame = 0;
 const watcher =
     typeof ResizeObserver === 'function'
         ? new ResizeObserver(() => {
-              frame ||= requestAnimationFrame(refitAll);
+              if (!frame) frame = requestAnimationFrame(refitAll);
           })
         : null;
 
