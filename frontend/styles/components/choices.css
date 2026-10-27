@@ -39,20 +39,19 @@
     background: none;
     color: inherit;
 }
-.game-choice:is(:hover, :focus-visible, :active):not(:disabled) .blocks,
-.game-choice:is(.is-picked, .is-right, .is-wrong) .blocks {
+.game-choice:is(:is(:hover, :focus-visible, :active):not(:disabled), .is-picked, .is-right, .is-wrong) .blocks {
     text-shadow:
         calc(var(--px) / 4) 0 currentColor,
         calc(var(--px) / -4) 0 currentColor,
         calc(var(--cw) / 2) calc(var(--cw) / 2) 0 var(--mark, var(--ink));
 }
-.game-choice.is-right .blocks {
+.game-choice.is-right {
     --mark: var(--G);
 }
-.game-choice.is-wrong .blocks {
+.game-choice.is-wrong {
     --mark: var(--R);
 }
-/* the roster between the swatch rows spans the grid */
+/* the roster under the swatches spans the grid */
 .game-choices > :not(.game-choice) {
     grid-column: 1 / -1;
     justify-self: center;

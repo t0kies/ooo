@@ -18,9 +18,11 @@
 .game-clock[data-urgency="danger"] .game-clock-bar {
     color: var(--R);
 }
-.game-clock.is-beat .game-hud-timer,
-.game-clock.is-beat[data-urgency="danger"] .game-clock-bar {
-    animation: clock-beat 300ms steps(1) 1;
+@media (prefers-reduced-motion: no-preference) {
+    .game-clock.is-beat .game-hud-timer,
+    .game-clock.is-beat[data-urgency="danger"] .game-clock-bar {
+        animation: clock-beat 300ms steps(1) 1;
+    }
 }
 /* upright phones: half the top row */
 @media (pointer: coarse) and (hover: none) and (max-width: 599px) {
@@ -31,10 +33,5 @@
 @keyframes clock-beat {
     50% {
         opacity: 0.35;
-    }
-}
-@media (prefers-reduced-motion: reduce) {
-    .game-clock * {
-        animation: none !important;
     }
 }

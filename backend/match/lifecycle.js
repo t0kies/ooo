@@ -21,7 +21,7 @@ function startMatch(ctx, match) {
 // Sends the results and closes the match. An invite code is held so the
 // group can reopen the room.
 function finishMatch(ctx, match, reason) {
-    if (!match || match.phase !== 'active') return;
+    if (match?.phase !== 'active') return;
     match.phase = 'finished';
     const { results, winnerId } = finalResults(match);
     broadcast(ctx, match, 'match:finished', { reason, results, winnerId, code: match.code });

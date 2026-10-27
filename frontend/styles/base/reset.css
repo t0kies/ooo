@@ -2,6 +2,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    /* biome-ignore lint/complexity/noImportantStyles: corners are never rounded */
     border-radius: 0 !important;
     scrollbar-width: none;
 }

@@ -18,7 +18,7 @@ function submitGuess(ctx, socketId, questionIndex, optionId) {
     const player = ctx.players.bySocket.get(socketId);
     if (!player) return fail('not_in_match');
     const match = ctx.matches.get(player.matchId);
-    if (!match || match.phase !== 'active') return fail('match_not_active');
+    if (match?.phase !== 'active') return fail('match_not_active');
     if (ctx.now() >= match.deadlineMonotonic) {
         finishMatch(ctx, match, 'time');
         return fail('match_ended');

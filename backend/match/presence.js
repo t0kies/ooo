@@ -8,7 +8,7 @@ function setReady(ctx, socketId, ready) {
     const player = ctx.players.bySocket.get(socketId);
     if (!player || typeof ready !== 'boolean') return fail('invalid_state');
     const match = ctx.matches.get(player.matchId);
-    if (!match || match.phase !== 'lobby') return fail('match_not_waiting');
+    if (match?.phase !== 'lobby') return fail('match_not_waiting');
     player.ready = ready;
     broadcastState(ctx, match);
     startIfReady(ctx, match);
@@ -19,7 +19,7 @@ function setReady(ctx, socketId, ready) {
 function kick(ctx, socketId, playerId) {
     const host = ctx.players.bySocket.get(socketId);
     const match = host && ctx.matches.get(host.matchId);
-    if (!match || match.phase !== 'lobby') return fail('match_not_waiting');
+    if (match?.phase !== 'lobby') return fail('match_not_waiting');
     if (match.hostId !== host.id) return fail('not_host');
     const target = match.players.get(playerId);
     if (!target || target === host) return fail('invalid_state');

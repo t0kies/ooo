@@ -7,7 +7,7 @@ const noKeys = matchMedia('(hover: none)');
 // Each swatch has a cell of padding either side (hanging past the card's
 // edges at the ends), a key-label row under it (not on touch screens), then
 // a gap row. One row is kept for a notice, and `extraRows` for the block
-// between the swatch rows. Swatches take all the height, at most a 2:1 bar
+// under the swatches. Swatches take all the height, at most a 2:1 bar
 // (a cell is half as wide as a row is tall, so across = 2 × down is square).
 function fit({ cols, rows }, perRow, count, extraRows = 0) {
     const rowCount = Math.ceil(count / perRow);

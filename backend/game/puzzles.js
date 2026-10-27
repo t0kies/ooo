@@ -1,6 +1,6 @@
 const { hsbToHex } = require('./color');
 
-const OPTION_COUNT = 6;
+const OPTION_COUNT = 3;
 
 // How far (in brightness points out of 100) the odd swatch sits from the rest:
 // startStep on the first round, easing to minStep by round rampRounds.
@@ -16,7 +16,7 @@ function stepFor(index, { startStep, minStep, rampRounds }) {
     return Math.max(minStep, Math.round(startStep - (startStep - minStep) * progress));
 }
 
-// One round: a random base color for the odd option, the other five a step
+// One round: a random base color for the odd option, the other two a step
 // brighter or darker (never past the ends of the scale).
 function makeQuestion(index, random = Math.random, difficulty = DIFFICULTY_PRESETS.normal) {
     const hue = Math.floor(random() * 360);

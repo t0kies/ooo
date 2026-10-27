@@ -1,6 +1,6 @@
 # Odd One Out
 
-Six swatches, one a shade off, and a clock running down.
+Three swatches, one a shade off, and a clock running down.
 
 A small color game drawn entirely in text, in the Departure Mono pixel font.
 Solo practice runs in the browser; online, friends and strangers play
