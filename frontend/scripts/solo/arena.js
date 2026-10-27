@@ -16,7 +16,7 @@ export function drawArena(game, { best, damage, exitLabel, onExit }) {
     setScreen('solo practice', {
         hud,
         exit: { label: exitLabel, run: onExit },
-        keys: `1–6 or q w e · a s d pick · esc ${exitLabel}`,
+        keys: `1–3 or q w e pick · esc ${exitLabel}`,
     });
 
     const updateHud = ({ level, health, score }) =>

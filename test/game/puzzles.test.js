@@ -17,7 +17,7 @@ test('converts HSB to hex', () => {
     assert.equal(hsbToHex(-120, 100, 100), '#0000FF');
 });
 
-test('generates six public options without exposing the answer', () => {
+test('generates three public options without exposing the answer', () => {
     const question = makeQuestion(0, () => 0);
     assert.equal(question.options.length, OPTION_COUNT);
     assert.equal(question.correctOption, 0);

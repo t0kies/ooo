@@ -37,7 +37,7 @@ export function showPlay(game, state, ui, { guess, leave, findAnother, redraw })
         exit: ui.leaveArmed
             ? { label: 'again to leave', run: leave, armed: true }
             : { label: 'leave match', run: leave, key: 'esc esc' },
-        keys: '1–6 or q w e · a s d pick',
+        keys: '1–3 or q w e pick',
     });
     const question = ui.question ?? state.question;
     const answered = ui.answer >= 0;

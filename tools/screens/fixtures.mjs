@@ -1,7 +1,7 @@
 // Placeholder match data the screens are drawn from. Health goes up to 10,
 // the most hearts the layout has to fit (capture.mjs sets STARTING_HEALTH 10).
 
-const COLORS = ['#7a5c8f', '#7a5c8f', '#6b4f80', '#7a5c8f', '#7a5c8f', '#7a5c8f'];
+const COLORS = ['#7a5c8f', '#6b4f80', '#7a5c8f'];
 const options = COLORS.map((hex_code, id) => ({ id, hex_code }));
 
 export const players = [

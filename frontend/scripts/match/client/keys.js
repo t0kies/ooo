@@ -6,7 +6,7 @@ const ARM_MS = 2000;
 
 // Esc leaves the queue or a lobby, closes results, and leaves a match you're
 // out of. While still playing it takes two presses within ARM_MS, so a stray
-// key can't throw a game away. In a match, 1–6 / q w e a s d pick.
+// key can't throw a game away. In a match, 1–3 / q w e pick.
 export function onKeydown(ctx, event) {
     const { state } = ctx;
     if (event.key === 'Escape' && !ctx.stopSolo && !event.defaultPrevented) {

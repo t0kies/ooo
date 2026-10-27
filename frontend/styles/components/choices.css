@@ -52,7 +52,7 @@
 .game-choice.is-wrong .blocks {
     --mark: var(--R);
 }
-/* the roster between the swatch rows spans the grid */
+/* the roster under the swatches spans the grid */
 .game-choices > :not(.game-choice) {
     grid-column: 1 / -1;
     justify-self: center;

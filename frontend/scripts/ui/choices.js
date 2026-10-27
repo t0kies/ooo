@@ -32,11 +32,11 @@ function choiceButton(option, index, { across, down }, { picked, disabled, onPic
 
 // The options as block swatches with their keys underneath, resized when the
 // card changes size. The card must be in the page to be measured.
-// between: { el, rows } placed after the first row of swatches.
+// between: { el, rows } placed under the row of swatches.
 // right / wrong: mark an answered pick (as in markChoices).
 export function choiceRow(card, options, onPick, opts = {}) {
     const { picked = -1, disabled = false, between = null, right = -1, wrong = -1 } = opts;
-    const extraRows = between && options.length > 3 ? between.rows + 1 : 0;
+    const extraRows = between ? between.rows + 1 : 0;
     const size = layoutFor(card, options.length, extraRows);
 
     const grid = line('game-choices');
