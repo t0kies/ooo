@@ -1,8 +1,10 @@
-<p align="center">
-  <img src="frontend/assets/images/logo.svg" alt="Odd One Out" width="320">
+<p>
+  <img src="frontend/assets/images/logo.svg" alt="the Odd One Out logo" width="240">
 </p>
 
-<p align="center">
+<h1>Odd One Out</h1>
+
+<p>
   Three swatches, one a shade off, and a clock running down.
 </p>
 
