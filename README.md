@@ -1,9 +1,11 @@
 <p>
-  <img src="frontend/assets/images/logo.svg" alt="the Odd One Out logo" width="240">
+  <a href="https://ooo.xorxnor.com/">
+    <img src="frontend/assets/images/logo.svg" alt="the Odd One Out logo" width="240">
+  </a>
 </p>
-
+<a href="https://ooo.xorxnor.com/">ooo.xorxnor.com</a>
 <p>
-  Three swatches, one a shade off, and a clock running down.
+  Three swatches, one a shade off, and a clock running down. <a href="https://ooo.xorxnor.com/">IT IS ONLINE</a>.
 </p>
 
 <br>
