@@ -2,8 +2,6 @@
   <img src="frontend/assets/images/logo.svg" alt="the Odd One Out logo" width="240">
 </p>
 
-<h1>Odd One Out</h1>
-
 <p>
   Three swatches, one a shade off, and a clock running down.
 </p>
@@ -14,9 +12,7 @@ A small color game drawn entirely in text, in the Departure Mono pixel font.
 Solo practice runs in the browser; online, friends and strangers play
 35-second matches against each other.
 
-<p align="center">
-  <img src="frontend/assets/images/og-image.png" alt="the Odd One Out link preview card" width="600">
-</p>
+
 
 ## Contents
 
